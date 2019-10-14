@@ -1,0 +1,2 @@
+# WCL
+WoW Classic League
