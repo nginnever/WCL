@@ -17,6 +17,9 @@ import {
   DropdownItem } from 'reactstrap';
 
 import Register from './Components/Register';
+import OpenL from './Components/OpenL';
+import MainL from './Components/MainL';
+import InviteL from './Components/InviteL';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -47,25 +50,17 @@ function App() {
                     </DropdownToggle>
                     <DropdownMenu right>
                       <DropdownItem>
-                        <NavItem>
-                          <NavLink tag={RRNavLink} exact to="/Register">Open</NavLink>
-                        </NavItem>
+                        <NavLink tag={RRNavLink} exact to="/Open">Open</NavLink>
                       </DropdownItem>
                       <DropdownItem>
-                        <NavItem>
-                          <NavLink tag={RRNavLink} exact to="/Register">Main</NavLink>
-                        </NavItem>
+                        <NavLink tag={RRNavLink} exact to="/Main">Main</NavLink>
                       </DropdownItem>
                       <DropdownItem>
-                        <NavItem>
-                          <NavLink tag={RRNavLink} exact to="/Register">Invite</NavLink>
-                        </NavItem>
+                        <NavLink tag={RRNavLink} exact to="/Invite">Invite</NavLink>
                       </DropdownItem>
                       <DropdownItem divider />
                       <DropdownItem>
-                        <NavItem>
-                          <NavLink tag={RRNavLink} exact to="/Register">Season 0</NavLink>
-                        </NavItem>
+                        <NavLink tag={RRNavLink} exact to="/Register">Season 0</NavLink>
                       </DropdownItem>
                     </DropdownMenu>
                   </UncontrolledDropdown>
@@ -76,11 +71,17 @@ function App() {
 
           <img src={logo} className="App-logo" alt="logo" />
           <p>
-            World Of Warcraft Classic Dueling Leagues Coming Soon.
+            World of Warcraft Classic Dueling League Season ZERO Coming Soon.
+          </p>
+          <p>
+            FREE HONG KONG
           </p>
 
         </header>
         <Route path="/Register" component={Register} />
+        <Route path="/Open" component={OpenL} />
+        <Route path="/Main" component={MainL} />
+        <Route path="/Invite" component={InviteL} />
       </BrowserRouter>
     </div>
   );
