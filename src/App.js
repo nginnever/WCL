@@ -39,9 +39,6 @@ function App() {
                     <NavLink style={{color: '#f1f1f1'}} href="/">WoW Classic League</NavLink>
                   </NavItem>
                   <NavItem>
-                    <NavLink style={{color: '#f1f1f1'}} tag={RRNavLink} exact to="/Register">Register</NavLink>
-                  </NavItem>
-                  <NavItem>
                     <NavLink style={{color: '#f1f1f1'}} href="https://github.com/reactstrap/reactstrap">Discord</NavLink>
                   </NavItem>
                   <UncontrolledDropdown nav inNavbar>
@@ -59,11 +56,14 @@ function App() {
                         <NavLink tag={RRNavLink} exact to="/Invite">Invite</NavLink>
                       </DropdownItem>
                       <DropdownItem divider />
-                      <DropdownItem>
-                        <NavLink tag={RRNavLink} exact to="/Register">Season 0</NavLink>
-                      </DropdownItem>
                     </DropdownMenu>
                   </UncontrolledDropdown>
+                  <NavItem>
+                    <NavLink style={{color: '#f1f1f1'}} href="/">Login</NavLink>
+                  </NavItem>
+                  <NavItem>
+                    <NavLink style={{color: '#f1f1f1'}} tag={RRNavLink} exact to="/Register">Register</NavLink>
+                  </NavItem>
                 </Nav>
               </Collapse>
             </Navbar>
