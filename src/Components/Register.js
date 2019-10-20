@@ -45,7 +45,7 @@ class Register extends React.Component {
     	<br/>
     	<br/>
     <div style={{display: 'flex', justifyContent: 'center'}}>
-     <Form style={{width: '40%', border: '3px solid gray', padding:'25px', borderRadius: '10px'}}>
+     <Form style={{width: '40%', border: '3px solid #c7c5c5', padding:'25px', borderRadius: '10px'}}>
       <FormGroup>
         <Label for="Name">Account Name</Label>
         <Input type="name" name="name" id="exampleName" placeholder="wowdueler" />

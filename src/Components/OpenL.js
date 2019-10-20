@@ -13,6 +13,9 @@ import {
   DropdownMenu,
   DropdownItem } from 'reactstrap';
 
+import OpenStandings from './OpenStandings';
+import OpenFormat from './OpenFormat';
+
 class OpenL extends React.Component {
   constructor(props) {
     super(props);
@@ -28,6 +31,7 @@ class OpenL extends React.Component {
 
   render() {
     return <div>
+    <BrowserRouter>
 		<div className="Nested-header">
 		<Navbar style={{backgroundColor: 'white', borderRadius: '10px', position:'absolute', marginTop:'-27px'}} light expand="md">
 		  <NavbarToggler onClick={this.toggle} />
@@ -42,7 +46,10 @@ class OpenL extends React.Component {
                 <NavLink tag={RRNavLink} exact to="/Open">All</NavLink>
               </DropdownItem>
               <DropdownItem>
-                <NavLink tag={RRNavLink} exact to="/Open">By Server</NavLink>
+                <NavLink tag={RRNavLink} exact to="/Open">Server Standings</NavLink>
+              </DropdownItem>
+              <DropdownItem>
+                <NavLink tag={RRNavLink} exact to="/Open">Class Standings</NavLink>
               </DropdownItem>
             </DropdownMenu>
           </UncontrolledDropdown>
@@ -50,7 +57,7 @@ class OpenL extends React.Component {
             <NavLink style={{borderRight:'solid 1px black', color: 'black'}} tag={RRNavLink} exact to="/Register">&nbsp; Schedule &nbsp;</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink style={{borderRight:'solid 1px black', color: 'black'}} tag={RRNavLink} exact to="/Register">&nbsp; Rules &nbsp; </NavLink>
+            <NavLink style={{borderRight:'solid 1px black', color: 'black'}} tag={RRNavLink} exact to="/OpenFormat">&nbsp; Format &nbsp; </NavLink>
           </NavItem>
 		      <UncontrolledDropdown nav inNavbar>
 		        <DropdownToggle style={{color: 'black'}} nav caret>
@@ -65,14 +72,16 @@ class OpenL extends React.Component {
 		    </Nav>
 		  </Collapse>
 		</Navbar>
-		</div>
-    <div style={{marginTop:'50px'}}>
-      <h1>WCL Open</h1>
-      <br/>
-      <p>Open League Begins November 20th</p>
-      <br/>
-      <br/>
     </div>
+      <div style={{marginTop:'50px'}}>
+        <h1>WCL Open</h1>
+        <p>Open League Begins November 20th</p>
+        <br/>
+        <br/>
+      </div>
+    <Route path="/OpenStandings" component={OpenStandings} />
+    <Route path="/OpenFormat" component={OpenFormat} />
+    </BrowserRouter>
     </div>
   }
 }

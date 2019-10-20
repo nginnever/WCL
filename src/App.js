@@ -28,6 +28,11 @@ import MainL from './Components/MainL';
 import InviteL from './Components/InviteL';
 
 function App() {
+  // initialize our state
+  var state = {
+    isLoggedIn: false
+  }
+
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
@@ -124,6 +129,9 @@ function App() {
           </p>
           <p>
             FREE HONG KONG
+          </p>
+          <p style={{fontSize:'14px'}}>
+            Site still under construction, please provide feedback in Discord as we prepare for Season 0.
           </p>
 
         </header>
