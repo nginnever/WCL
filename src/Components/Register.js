@@ -39,7 +39,7 @@ class Register extends React.Component {
 
   render() {
     return <div style={{marginTop:'50px'}}>
-    	<h1>Register Now</h1>
+    	<h1>Season 0 Registration: Open</h1>
     	<br/>
     	<p>Season 0 registration open until November 15th</p>
     	<br/>

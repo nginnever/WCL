@@ -14,7 +14,13 @@ import {
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
-  DropdownItem } from 'reactstrap';
+  DropdownItem,
+  Col,
+  FormGroup,
+  Form,
+  Label,
+  Input,
+  Button } from 'reactstrap';
 
 import Register from './Components/Register';
 import OpenL from './Components/OpenL';
@@ -58,9 +64,42 @@ function App() {
                       <DropdownItem divider />
                     </DropdownMenu>
                   </UncontrolledDropdown>
-                  <NavItem>
-                    <NavLink style={{color: '#f1f1f1'}} href="/">Login</NavLink>
-                  </NavItem>
+
+                  <UncontrolledDropdown>
+                    <DropdownToggle style={{color: '#f1f1f1'}} nav caret>
+                      Login
+                    </DropdownToggle>
+                    <DropdownMenu right>
+                    <DropdownItem>
+                    <Form className="form" style={{height:'75px', width:'500px'}}>
+                      <Col>
+                        <FormGroup>
+                          <Label>Email</Label>
+                          <Input
+                            type="email"
+                            name="email"
+                            id="exampleEmail"
+                            placeholder="myemail@email.com"
+                          />
+                        </FormGroup>
+                      </Col>
+                      <Col>
+                        <FormGroup>
+                          <Label for="examplePassword">Password</Label>
+                          <Input
+                            type="password"
+                            name="password"
+                            id="examplePassword"
+                            placeholder="********"
+                          />
+                        </FormGroup>
+                      </Col>
+                      <Button>Submit</Button>
+                    </Form>
+                    </DropdownItem>
+                    </DropdownMenu>
+                  </UncontrolledDropdown>
+
                   <NavItem>
                     <NavLink style={{color: '#f1f1f1'}} tag={RRNavLink} exact to="/Register">Register</NavLink>
                   </NavItem>
