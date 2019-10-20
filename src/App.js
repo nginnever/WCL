@@ -32,6 +32,9 @@ function App() {
 
   const toggle = () => setIsOpen(!isOpen);
 
+  const toggle2 = () => setIsOpen(isOpen2);
+  const isOpen2 = useState(true);
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -64,6 +67,16 @@ function App() {
                       <DropdownItem divider />
                     </DropdownMenu>
                   </UncontrolledDropdown>
+                  <NavItem>
+                    <NavLink style={{color: '#f1f1f1'}} tag={RRNavLink} exact to="/Register">Register</NavLink>
+                  </NavItem>
+
+              </Nav>
+              </Collapse>    
+
+
+
+                <Nav className="ml-auto" navbar>
 
                   <UncontrolledDropdown>
                     <DropdownToggle style={{color: '#f1f1f1'}} nav caret>
@@ -100,11 +113,8 @@ function App() {
                     </DropdownMenu>
                   </UncontrolledDropdown>
 
-                  <NavItem>
-                    <NavLink style={{color: '#f1f1f1'}} tag={RRNavLink} exact to="/Register">Register</NavLink>
-                  </NavItem>
                 </Nav>
-              </Collapse>
+
             </Navbar>
           </div>
 

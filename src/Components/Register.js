@@ -167,11 +167,11 @@ class Register extends React.Component {
         </Input>
       </FormGroup>
       <FormGroup>
-        <Label for="exampleText">Text Area</Label>
+        <Label for="exampleText">Player Profile Information</Label>
         <Input type="textarea" name="text" id="exampleText" />
       </FormGroup>
       <FormGroup>
-        <Label for="exampleFile">Upload Champion Screen Shot</Label>
+        <Label for="exampleFile">Upload Champion Gear And Engineering Screen Shot</Label>
         <Input type="file" name="file" id="exampleFile" />
         <FormText color="muted">
           This is some placeholder block-level help text for the above input.

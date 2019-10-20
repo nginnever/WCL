@@ -33,8 +33,21 @@ class OpenL extends React.Component {
 		  <NavbarToggler onClick={this.toggle} />
 		  <Collapse isOpen={this.isOpen} navbar>
 		    <Nav className="ml-auto" navbar>
+          <UncontrolledDropdown nav inNavbar>
+            <DropdownToggle style={{borderRight:'solid 1px black', color: 'black'}} nav caret>
+              Standings
+            </DropdownToggle>
+            <DropdownMenu right>
+              <DropdownItem>
+                <NavLink tag={RRNavLink} exact to="/Open">All</NavLink>
+              </DropdownItem>
+              <DropdownItem>
+                <NavLink tag={RRNavLink} exact to="/Open">By Server</NavLink>
+              </DropdownItem>
+            </DropdownMenu>
+          </UncontrolledDropdown>
           <NavItem>
-            <NavLink style={{borderRight:'solid 1px black', color: 'black'}} tag={RRNavLink} exact to="/Register">Standings &nbsp;</NavLink>
+            <NavLink style={{borderRight:'solid 1px black', color: 'black'}} tag={RRNavLink} exact to="/Register">&nbsp; Schedule &nbsp;</NavLink>
           </NavItem>
           <NavItem>
             <NavLink style={{borderRight:'solid 1px black', color: 'black'}} tag={RRNavLink} exact to="/Register">&nbsp; Rules &nbsp; </NavLink>
@@ -46,12 +59,6 @@ class OpenL extends React.Component {
 		        <DropdownMenu right>
 		          <DropdownItem>
 		            <NavLink tag={RRNavLink} exact to="/Open">Season 0</NavLink>
-		          </DropdownItem>
-		          <DropdownItem>
-		            <NavLink tag={RRNavLink} exact to="/Main">Season 1</NavLink>
-		          </DropdownItem>
-		          <DropdownItem>
-		            <NavLink tag={RRNavLink} exact to="/Invite">Season 2</NavLink>
 		          </DropdownItem>
 		        </DropdownMenu>
 		      </UncontrolledDropdown>
