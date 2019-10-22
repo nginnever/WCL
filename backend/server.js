@@ -13,7 +13,7 @@ const path = require('path');
 
 // this is our MongoDB database
 const dbRoute =
-  'mongodb+srv://nathan:<password>@cluster0-x3jok.mongodb.net/test?retryWrites=true&w=majority';
+  'mongodb+srv://nathan:pass@cluster0-x3jok.mongodb.net/test?retryWrites=true&w=majority';
 
 // connects our back end code with the database
 mongoose.connect(dbRoute, { useNewUrlParser: true });
@@ -31,7 +31,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(logger('dev'));
 // Serve the static files from the React app
-app.use(express.static(path.join(__dirname, '../src/App')));
+//app.use(express.static(path.join(__dirname, '../src/App')));
 
 // this is our get method
 // this method fetches all available data in our database
@@ -85,6 +85,8 @@ router.post('/putData', (req, res) => {
 
 // append /api for our http requests
 app.use('/api', router);
+
+app.use("/", express.static(__dirname + "/../build"))
 
 // launch our backend into a port
 app.listen(API_PORT, () => console.log(`LISTENING ON PORT ${API_PORT}`));

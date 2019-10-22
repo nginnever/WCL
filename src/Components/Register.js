@@ -39,6 +39,7 @@ class Register extends React.Component {
 
   render() {
     return <div style={{marginTop:'50px'}}>
+      <br/>
     	<h1>Season 0 Registration: Open</h1>
     	<br/>
     	<p>Season 0 registration open until November 15th</p>
@@ -155,15 +156,15 @@ class Register extends React.Component {
       <FormGroup>
         <Label for="exampleSelectMulti">Select Your Champion(s) Class</Label>
         <Input type="select" name="selectMulti" id="exampleSelectMulti" multiple>
-          <option>Hunter</option>
-          <option>Warrior</option>
-          <option>Rogue</option>
-          <option>Priest</option>
           <option>Druid</option>
+          <option>Hunter</option>
           <option>Mage</option>
-          <option>Warlock</option>
-          <option>Shaman</option>
           <option>Paladin</option>
+          <option>Priest</option>
+          <option>Rogue</option>
+          <option>Shaman</option>
+          <option>Warlock</option>
+          <option>Warrior</option>
         </Input>
       </FormGroup>
       <FormGroup>

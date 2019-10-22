@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import logo from './logo.svg';
+import logo from './WCL_Logo.svg';
 import './App.css';
 import { Route, BrowserRouter, NavLink as RRNavLink } from 'react-router-dom';
 import {
@@ -26,6 +26,8 @@ import Register from './Components/Register';
 import OpenL from './Components/OpenL';
 import MainL from './Components/MainL';
 import InviteL from './Components/InviteL';
+
+import OpenFormat from './Components/OpenFormat';
 
 function App() {
   // initialize our state
@@ -122,8 +124,9 @@ function App() {
 
             </Navbar>
           </div>
-
+          <br/>
           <img src={logo} className="App-logo" alt="logo" />
+          <br/>
           <p>
             World of Warcraft Classic Dueling League Season ZERO Coming Soon.
           </p>
@@ -139,6 +142,7 @@ function App() {
         <Route path="/Open" component={OpenL} />
         <Route path="/Main" component={MainL} />
         <Route path="/Invite" component={InviteL} />
+        <Route path="/OpenFormat" component={OpenFormat} />
       </BrowserRouter>
     </div>
   );

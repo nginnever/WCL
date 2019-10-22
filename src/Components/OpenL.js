@@ -59,6 +59,9 @@ class OpenL extends React.Component {
           <NavItem>
             <NavLink style={{borderRight:'solid 1px black', color: 'black'}} tag={RRNavLink} exact to="/OpenFormat">&nbsp; Format &nbsp; </NavLink>
           </NavItem>
+          <NavItem>
+            <NavLink style={{borderRight:'solid 1px black', color: 'black'}} tag={RRNavLink} exact to="/Register">&nbsp; Rules &nbsp; </NavLink>
+          </NavItem>
 		      <UncontrolledDropdown nav inNavbar>
 		        <DropdownToggle style={{color: 'black'}} nav caret>
 		          &nbsp; Seasons
