@@ -5,6 +5,7 @@ class OpenStandings extends React.Component {
     return <div>
       <br/>
       <br/>
+      <h4> No standings yet</h4>
     </div>
   }
 }

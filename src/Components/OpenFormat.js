@@ -8,7 +8,7 @@ class OpenFormat extends React.Component {
       <h4>WCL-Open League Format</h4>
       <div style={{display: 'flex', justifyContent: 'center', textAlign:'left'}}>
       <p style={{width:'800px'}}>
-        &nbsp;&nbsp;&nbsp;&nbsp; The WCL operates similar to Counter Strike leagues where players schedule duels and report the results here to our web application during regular season.
+        In order to provide the most inclusive league possible, The WCL operates in a way where players schedule duels and report the results here to our web application during regular season.
         The WCL-Open League is open to all level 60 players. Both Horde and Alliance factions are supported in this league.
       </p>
       </div>
@@ -18,7 +18,7 @@ class OpenFormat extends React.Component {
       <p style={{width:'800px'}}>
         Regular season length and frequency of matches per week are TBD (suggestions from community please report to discord). For example, the 
         regular season could last two months with two match days per week. The match draws are fairly and randomly selected by our open code base, matching evenly against other classes and previous weeks scores. The schedules 
-        will be provided a week in advance to allow time for each participant to message and decide where the duel is to take place and at what time with the "home" player proposing location. 
+        will be provided a week in advance to allow time for each participant to message and decide where the duel is to take place and at what time with the "home" player proposing first. 
       </p>
       </div>
       <br/>
@@ -38,7 +38,7 @@ class OpenFormat extends React.Component {
       </p>
       </div>
       <br/>
-      <h5> Playoffs and advancing </h5>
+      <h5> Playoffs and Advancing </h5>
       <div style={{display: 'flex', justifyContent: 'center', textAlign:'left'}}>
       <p style={{width:'800px'}}>
         At the end of regular season, those that have scored enough wins will be able to advance

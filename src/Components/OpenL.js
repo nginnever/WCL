@@ -15,6 +15,8 @@ import {
 
 import OpenStandings from './OpenStandings';
 import OpenFormat from './OpenFormat';
+import OpenRules from './OpenRules';
+import OpenSchedule from './OpenSchedule';
 
 class OpenL extends React.Component {
   constructor(props) {
@@ -54,13 +56,13 @@ class OpenL extends React.Component {
             </DropdownMenu>
           </UncontrolledDropdown>
           <NavItem>
-            <NavLink style={{borderRight:'solid 1px black', color: 'black'}} tag={RRNavLink} exact to="/Register">&nbsp; Schedule &nbsp;</NavLink>
+            <NavLink style={{borderRight:'solid 1px black', color: 'black'}} tag={RRNavLink} exact to="/Open/Schedule">&nbsp; Schedule &nbsp;</NavLink>
           </NavItem>
           <NavItem>
-            <NavLink style={{borderRight:'solid 1px black', color: 'black'}} tag={RRNavLink} exact to="/OpenFormat">&nbsp; Format &nbsp; </NavLink>
+            <NavLink style={{borderRight:'solid 1px black', color: 'black'}} tag={RRNavLink} exact to="/Open/Format">&nbsp; Format &nbsp; </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink style={{borderRight:'solid 1px black', color: 'black'}} tag={RRNavLink} exact to="/Register">&nbsp; Rules &nbsp; </NavLink>
+            <NavLink style={{borderRight:'solid 1px black', color: 'black'}} tag={RRNavLink} exact to="/Open/Rules">&nbsp; Rules &nbsp; </NavLink>
           </NavItem>
 		      <UncontrolledDropdown nav inNavbar>
 		        <DropdownToggle style={{color: 'black'}} nav caret>
@@ -82,8 +84,10 @@ class OpenL extends React.Component {
         <br/>
         <br/>
       </div>
-    <Route path="/OpenStandings" component={OpenStandings} />
-    <Route path="/OpenFormat" component={OpenFormat} />
+    <Route path="/Open/Standings" component={OpenStandings} />
+    <Route path="/Open/Format" component={OpenFormat} />
+    <Route path="/Open/Rules" component={OpenRules} />
+    <Route path="/Open/Schedule" component={OpenSchedule} />
     </BrowserRouter>
     </div>
   }

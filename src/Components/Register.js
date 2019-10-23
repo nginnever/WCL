@@ -1,13 +1,22 @@
 import React from 'react'
 import { Button, Form, FormGroup, Label, Input, FormText, Container } from 'reactstrap';
+import axios from 'axios';
 
 class Register extends React.Component {
   constructor(props) {
     super(props);
 	this.state = {
 	  password: '',
-	  confirmPassword: ''
+	  confirmPassword: '',
+    serverSelect: '',
+    wclname: '',
+    wclemail: '',
+    Hfaction: '',
+    Afaction: '',
+    wclclass: '',
+    wclprofile: ''
 	}
+
 	this.handleInputChange = this.handleInputChange.bind(this);
 	this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -19,22 +28,43 @@ class Register extends React.Component {
   }
 
   handleSubmit(event) {
-    const { password, confirmPassword } = this.state;
+    const { 
+      wclname,
+      wclemail,
+      serverSelect,
+      password,
+      confirmPassword,
+      Hfaction,
+      Afaction,
+      wclclass,
+      wclprofile
+    } = this.state;
     // perform all neccassary validations
     if (password !== confirmPassword) {
         alert("Passwords don't match");
     } else {
-        // make API call
+        console.log(password)
+        console.log(serverSelect)
+        console.log(wclname)
+        console.log(wclemail)
+        console.log('Horde ' + Hfaction)
+        console.log('Alliance ' + Afaction)
+        console.log(wclclass)
+        console.log(wclprofile)
     }
   }
 
-  check(input){
-    if (input.value != document.getElementById('examplePassword').value) {
-        input.setCustomValidity('Password Must be Matching.');
-    } else {
-        // input is valid -- reset the error message
-        input.setCustomValidity('');
+  putDataToDB = (message) => {
+    let currentIds = this.state.data.map((data) => data.id);
+    let idToBeAdded = 0;
+    while (currentIds.includes(idToBeAdded)) {
+      ++idToBeAdded;
     }
+
+    axios.post('http://localhost:3001/api/putData', {
+      id: idToBeAdded,
+      message: message,
+    })
   }
 
   render() {
@@ -49,21 +79,21 @@ class Register extends React.Component {
      <Form style={{width: '40%', border: '3px solid #c7c5c5', padding:'25px', borderRadius: '10px'}}>
       <FormGroup>
         <Label for="Name">Account Name</Label>
-        <Input type="name" name="name" id="exampleName" placeholder="wowdueler" />
+        <Input type="name" name="wclname" id="name" placeholder="wowdueler" onChange={this.handleInputChange} />
       </FormGroup>
       <FormGroup>
         <Label for="exampleEmail">Email</Label>
-        <Input type="email" name="email" id="exampleEmail" placeholder="example@wowdueler.io" />
+        <Input type="email" name="wclemail" id="email" placeholder="example@wowdueler.io" onChange={this.handleInputChange} />
       </FormGroup>
       <FormGroup>
         <Label for="examplePassword">Password</Label>
-		<div id="message">
-		  <p>Password must contain the following:
-		  A <b>lowercase</b> letter;
-		  A <b>capital (uppercase)</b> letter;
-		  A <b>number</b>;
-		  Minimum <b>8 characters</b></p>
-		</div>
+    		<div id="message">
+    		  <p>Password must contain the following:
+    		  A <b>lowercase</b> letter;
+    		  A <b>capital (uppercase)</b> letter;
+    		  A <b>number</b>;
+    		  Minimum <b>8 characters</b></p>
+    		</div>
         <Input type="password" name="password" id="examplePassword" onChange={this.handleInputChange} pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" />
         Confirm Password
         <br/>
@@ -73,20 +103,20 @@ class Register extends React.Component {
         <legend>Select Faction</legend>
         <FormGroup check>
           <Label check>
-            <Input type="radio" name="Faction" />{' '}
+            <Input type="radio" name="Hfaction" onChange={this.handleInputChange} />{' '}
             Horde
           </Label>
         </FormGroup>
         <FormGroup check>
           <Label check>
-            <Input type="radio" name="Faction" />{' '}
+            <Input type="radio" name="Afaction" onChange={this.handleInputChange} />{' '}
             Alliance
           </Label>
         </FormGroup>
       </FormGroup>
       <FormGroup>
         <Label for="exampleSelect">Select Your Champion's Server (Americas)</Label>
-        <Input type="select" name="select" id="exampleSelect">
+        <Input type="select" name="serverSelect" id="exampleSelect" onChange={this.handleInputChange}>
           <option>NONE</option>
           <option>Anathema</option>
           <option>Arcanite Reaper</option>
@@ -118,7 +148,7 @@ class Register extends React.Component {
       </FormGroup>
       <FormGroup>
         <Label for="exampleSelect">Select Your Champion's Server (Europe)</Label>
-        <Input type="select" name="select" id="exampleSelect">
+        <Input type="select" name="serverSelect" id="exampleSelect" onChange={this.handleInputChange}>
           <option>NONE</option>
           <option>Ashbringer</option>
           <option>Bloodfang</option>
@@ -155,7 +185,7 @@ class Register extends React.Component {
       </FormGroup>
       <FormGroup>
         <Label for="exampleSelectMulti">Select Your Champion(s) Class</Label>
-        <Input type="select" name="selectMulti" id="exampleSelectMulti" multiple>
+        <Input type="select" name="wclclass" id="exampleSelectMulti" multiple onChange={this.handleInputChange}>
           <option>Druid</option>
           <option>Hunter</option>
           <option>Mage</option>
@@ -169,10 +199,10 @@ class Register extends React.Component {
       </FormGroup>
       <FormGroup>
         <Label for="exampleText">Player Profile Information</Label>
-        <Input type="textarea" name="text" id="exampleText" />
+        <Input type="textarea" name="wclprofile" id="exampleText" onChange={this.handleInputChange} />
       </FormGroup>
       <FormGroup>
-        <Label for="exampleFile">Upload Champion Gear And Engineering Screen Shot</Label>
+        <Label for="exampleFile">Upload Champion Gear Screen Shot</Label>
         <Input type="file" name="file" id="exampleFile" />
         <FormText color="muted">
           This is some placeholder block-level help text for the above input.

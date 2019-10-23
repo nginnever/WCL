@@ -13,7 +13,7 @@ const path = require('path');
 
 // this is our MongoDB database
 const dbRoute =
-  'mongodb+srv://nathan:pass@cluster0-x3jok.mongodb.net/test?retryWrites=true&w=majority';
+  'mongodb+srv://nathan:bushido420@cluster0-x3jok.mongodb.net/test?retryWrites=true&w=majority';
 
 // connects our back end code with the database
 mongoose.connect(dbRoute, { useNewUrlParser: true });

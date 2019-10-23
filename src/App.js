@@ -27,8 +27,6 @@ import OpenL from './Components/OpenL';
 import MainL from './Components/MainL';
 import InviteL from './Components/InviteL';
 
-import OpenFormat from './Components/OpenFormat';
-
 function App() {
   // initialize our state
   var state = {
@@ -51,13 +49,13 @@ function App() {
               <NavbarToggler onClick={toggle} />
               <Collapse isOpen={isOpen} navbar>
                 <Nav className="ml-auto" navbar>
-                  <NavItem>
+                  <NavItem style={{marginRight: '10px'}} >
                     <NavLink style={{color: '#f1f1f1'}} href="/">WoW Classic League</NavLink>
                   </NavItem>
-                  <NavItem>
+                  <NavItem style={{marginRight: '10px'}}>
                     <NavLink style={{color: '#f1f1f1'}} href="https://github.com/reactstrap/reactstrap">Discord</NavLink>
                   </NavItem>
-                  <UncontrolledDropdown nav inNavbar>
+                  <UncontrolledDropdown style={{marginRight: '10px'}} nav inNavbar>
                     <DropdownToggle style={{color: '#f1f1f1'}} nav caret>
                       Leagues
                     </DropdownToggle>
@@ -71,10 +69,9 @@ function App() {
                       <DropdownItem>
                         <NavLink tag={RRNavLink} exact to="/Invite">Invite</NavLink>
                       </DropdownItem>
-                      <DropdownItem divider />
                     </DropdownMenu>
                   </UncontrolledDropdown>
-                  <NavItem>
+                  <NavItem style={{marginRight: '10px'}}>
                     <NavLink style={{color: '#f1f1f1'}} tag={RRNavLink} exact to="/Register">Register</NavLink>
                   </NavItem>
 
@@ -142,7 +139,6 @@ function App() {
         <Route path="/Open" component={OpenL} />
         <Route path="/Main" component={MainL} />
         <Route path="/Invite" component={InviteL} />
-        <Route path="/OpenFormat" component={OpenFormat} />
       </BrowserRouter>
     </div>
   );
