@@ -33,10 +33,16 @@ app.use(logger('dev'));
 // Serve the static files from the React app
 //app.use(express.static(path.join(__dirname, '../src/App')));
 
-// this is our get method
-// this method fetches all available data in our database
-router.get('/getData', (req, res) => {
-  Data.find((err, data) => {
+router.get('/getLatestID', (req, res) => {
+  //Data.findOne({id: { $gte: 0 }},(err, data) => {
+  Data.findOne({}, {}, { sort: { id : -1 } },(err, data) => {
+    if (err) return res.json({ success: false, error: err });
+    return res.json({ success: true, data: data.id });
+  });
+});
+
+router.get('/getAllIDs', (req, res) => {
+  Data.findOne({id: { $gte: 0 }},(err, data) => {
     if (err) return res.json({ success: false, error: err });
     return res.json({ success: true, data: data });
   });
@@ -67,16 +73,34 @@ router.delete('/deleteData', (req, res) => {
 router.post('/putData', (req, res) => {
   let data = new Data();
 
-  const { id, message } = req.body;
+  const {     
+    id,
+    wclname,
+    wclemail,
+    password,
+    Hfaction,
+    Afaction,
+    serverSelect,
+    wclclass,
+    wclprofile
+  } = req.body;
 
-  if ((!id && id !== 0) || !message) {
+  if ((!id && id !== 0) || !wclprofile) {
     return res.json({
       success: false,
       error: 'INVALID INPUTS',
     });
   }
-  data.message = message;
-  data.id = id;
+
+  data.wclname = wclname
+  data.wclemail = wclemail
+  data.password = password
+  data.Hfaction = Hfaction
+  data.Afaction = Afaction
+  data.serverSelect =serverSelect
+  data.wclclass = wclclass
+  data.wclprofile = wclprofile
+  data.id = id
   data.save((err) => {
     if (err) return res.json({ success: false, error: err });
     return res.json({ success: true });

@@ -6,17 +6,18 @@ const Schema = mongoose.Schema;
 const DataSchema = new Schema(
   {
     id: Number,
-    username: String,
-    email: String,
-    passwordHash: String,
-    faction: String,
-    server: String,
-    class: String,
-    profile: String,
-    image: { data: Buffer, contentType: String }
+    wclname: String,
+    wclemail: String,
+    password: String,
+    Hfaction: String,
+    Afaction: String,
+    serverSelect: String,
+    wclclass: String,
+    wclprofile: String
+    // image: { data: Buffer, contentType: String }
   },
   { timestamps: true }
 );
 
 // export the new Schema so we could modify it using Node.js
-module.exports = mongoose.model("Data", DataSchema);
+module.exports = mongoose.model("User", DataSchema);

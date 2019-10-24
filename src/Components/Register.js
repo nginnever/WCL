@@ -1,24 +1,27 @@
 import React from 'react'
 import { Button, Form, FormGroup, Label, Input, FormText, Container } from 'reactstrap';
 import axios from 'axios';
+import { withRouter } from 'react-router-dom';
 
 class Register extends React.Component {
   constructor(props) {
-    super(props);
-	this.state = {
-	  password: '',
-	  confirmPassword: '',
-    serverSelect: '',
-    wclname: '',
-    wclemail: '',
-    Hfaction: '',
-    Afaction: '',
-    wclclass: '',
-    wclprofile: ''
-	}
+    super(props)
+  	this.state = {
+      data: [],
+      id: '',
+  	  password: '',
+  	  confirmPassword: '',
+      serverSelect: '',
+      wclname: '',
+      wclemail: '',
+      Hfaction: '',
+      Afaction: '',
+      wclclass: '',
+      wclprofile: ''
+  	}
 
-	this.handleInputChange = this.handleInputChange.bind(this);
-	this.handleSubmit = this.handleSubmit.bind(this);
+  	this.handleInputChange = this.handleInputChange.bind(this)
+  	this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleInputChange(event) {
@@ -40,34 +43,56 @@ class Register extends React.Component {
       wclprofile
     } = this.state;
     // perform all neccassary validations
+
     if (password !== confirmPassword) {
-        alert("Passwords don't match");
+      alert("Passwords don't match");
+    } else if (wclname == '') {
+      alert("Must provide username");
     } else {
-        console.log(password)
-        console.log(serverSelect)
-        console.log(wclname)
-        console.log(wclemail)
-        console.log('Horde ' + Hfaction)
-        console.log('Alliance ' + Afaction)
-        console.log(wclclass)
-        console.log(wclprofile)
+      this.putDataToDB(this.state)
     }
   }
 
-  putDataToDB = (message) => {
-    let currentIds = this.state.data.map((data) => data.id);
-    let idToBeAdded = 0;
-    while (currentIds.includes(idToBeAdded)) {
-      ++idToBeAdded;
-    }
+  getLatestID = () => {
+    return new Promise((resolve, reject) => {
+      fetch('http://localhost:3001/api/getLatestID')
+        .then((data) => data.json())
+        .then((res) => this.setState({ data: res.data }))
+        //.then(() => console.log(this.state.data))
+        .then(() => resolve())
+    })
+  };
 
-    axios.post('http://localhost:3001/api/putData', {
-      id: idToBeAdded,
-      message: message,
+  putDataToDB = (message) => {
+    // get latest id from DB
+    this.getLatestID().then(() => {
+      //let currentIds = this.state.data.map((data) => data.id)
+      let currentId = this.state.data.id
+      let idToBeAdded = currentId + 1
+      // while (currentIds.includes(idToBeAdded)) {
+      //   ++idToBeAdded;
+      // }
+
+      axios.post('http://localhost:3001/api/putData', {
+        id: idToBeAdded,
+        password: this.state.password,
+        serverSelect: this.state.serverSelect,
+        wclname: this.state.wclname,
+        wclemail: this.state.wclemail,
+        Hfaction: this.state.Hfaction,
+        Afaction: this.state.Afaction,
+        wclclass: this.state.wclclass,
+        wclprofile: this.state.wclprofile      
+      })
+      this.props.history.push('/Register/Confirmation')
     })
   }
 
   render() {
+    const { location } = this.props;
+    if (location.pathname.match('/Register/Confirmation')){
+      return null;
+    } else {
     return <div style={{marginTop:'50px'}}>
       <br/>
     	<h1>Season 0 Registration: Open</h1>
@@ -222,5 +247,6 @@ class Register extends React.Component {
     <br/>
     </div>
   }
+  }
 }
-export default Register
+export default withRouter(Register)

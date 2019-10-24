@@ -26,6 +26,7 @@ import Register from './Components/Register';
 import OpenL from './Components/OpenL';
 import MainL from './Components/MainL';
 import InviteL from './Components/InviteL';
+import Confirmation from './Components/Confirmation';
 
 function App() {
   // initialize our state
@@ -139,6 +140,7 @@ function App() {
         <Route path="/Open" component={OpenL} />
         <Route path="/Main" component={MainL} />
         <Route path="/Invite" component={InviteL} />
+        <Route path="/Register/Confirmation" component={Confirmation} />
       </BrowserRouter>
     </div>
   );
