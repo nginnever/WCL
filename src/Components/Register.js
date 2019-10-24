@@ -17,10 +17,12 @@ class Register extends React.Component {
       Hfaction: '',
       Afaction: '',
       wclclass: '',
-      wclprofile: ''
+      wclprofile: '',
+      wclprofileimage: {}
   	}
 
   	this.handleInputChange = this.handleInputChange.bind(this)
+    this.handleInputImage = this.handleInputImage.bind(this)
   	this.handleSubmit = this.handleSubmit.bind(this)
   }
 
@@ -30,7 +32,15 @@ class Register extends React.Component {
   	})
   }
 
-  handleSubmit(event) {
+  handleInputImage(event) {
+    console.log(event.target.files[0])
+    this.setState({
+      wclprofileimage: event.target.files[0]
+    })
+  }
+
+
+  handleSubmit() {
     const { 
       wclname,
       wclemail,
@@ -40,7 +50,8 @@ class Register extends React.Component {
       Hfaction,
       Afaction,
       wclclass,
-      wclprofile
+      wclprofile,
+      wclprofileimage
     } = this.state;
     // perform all neccassary validations
 
@@ -67,11 +78,15 @@ class Register extends React.Component {
     // get latest id from DB
     this.getLatestID().then(() => {
       //let currentIds = this.state.data.map((data) => data.id)
-      let currentId = this.state.data.id
+      let currentId = this.state.data
       let idToBeAdded = currentId + 1
       // while (currentIds.includes(idToBeAdded)) {
       //   ++idToBeAdded;
       // }
+
+      console.log(this.state.wclprofileimage)
+      const data = URL.createObjectURL(this.state.wclprofileimage)
+      console.log(data)
 
       axios.post('http://localhost:3001/api/putData', {
         id: idToBeAdded,
@@ -82,7 +97,8 @@ class Register extends React.Component {
         Hfaction: this.state.Hfaction,
         Afaction: this.state.Afaction,
         wclclass: this.state.wclclass,
-        wclprofile: this.state.wclprofile      
+        wclprofile: this.state.wclprofile,
+        wclprofileimage: this.state.wclprofileimage
       })
       this.props.history.push('/Register/Confirmation')
     })
@@ -228,7 +244,7 @@ class Register extends React.Component {
       </FormGroup>
       <FormGroup>
         <Label for="exampleFile">Upload Champion Gear Screen Shot</Label>
-        <Input type="file" name="file" id="exampleFile" />
+        <Input type="file" name="wclprofileimage" id="wclprofileimage" onChange={this.handleInputImage} />
         <FormText color="muted">
           This is some placeholder block-level help text for the above input.
           It's a bit lighter and easily wraps to a new line.

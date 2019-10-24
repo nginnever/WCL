@@ -66,3 +66,25 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+### TODO:
+
+[] Form validation
+[] IMG upload handling
+[] Review format copy
+[] Footer
+[] Setup discord
+[] Login System
+[] API for standings
+[] UI for standings
+[] Profile page
+[] Edit profile page
+[] Match reporting system
+[] Match dispute system
+[] Match selection randomizer
+[] UI Details
+[] free HK link
+[] Update Rules
+[] Bug godaddy about nameservers
+[] Check ssl on loadbalancer
+

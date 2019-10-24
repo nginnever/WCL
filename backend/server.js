@@ -82,7 +82,8 @@ router.post('/putData', (req, res) => {
     Afaction,
     serverSelect,
     wclclass,
-    wclprofile
+    wclprofile,
+    wclprofileimage
   } = req.body;
 
   if ((!id && id !== 0) || !wclprofile) {
@@ -100,6 +101,7 @@ router.post('/putData', (req, res) => {
   data.serverSelect =serverSelect
   data.wclclass = wclclass
   data.wclprofile = wclprofile
+  data.wclprofileimage = wclprofileimage
   data.id = id
   data.save((err) => {
     if (err) return res.json({ success: false, error: err });

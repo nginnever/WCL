@@ -141,6 +141,12 @@ function App() {
         <Route path="/Main" component={MainL} />
         <Route path="/Invite" component={InviteL} />
         <Route path="/Register/Confirmation" component={Confirmation} />
+
+        <footer className="App-footer">
+          <p style={{marginBottom:'0px'}}>Some: Footer text <br/>
+          Contact information: <a href="mailto:someone@example.com">
+          someone@example.com</a>.</p>
+        </footer>
       </BrowserRouter>
     </div>
   );

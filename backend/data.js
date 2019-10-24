@@ -13,7 +13,8 @@ const DataSchema = new Schema(
     Afaction: String,
     serverSelect: String,
     wclclass: String,
-    wclprofile: String
+    wclprofile: String,
+    wclprofileimage: { data: Buffer, contentType: String }
     // image: { data: Buffer, contentType: String }
   },
   { timestamps: true }
