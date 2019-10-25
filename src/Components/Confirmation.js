@@ -1,7 +1,7 @@
 import React from 'react'
 class Confirmation extends React.Component {
   render() {
-    return <div className="Reg">
+    return <div className="Reg" style={{backgroundColor: 'white'}}>
         <br/>
         <br/>
     	<h1>Thank you for registering your champion, see you in Season 0!</h1>

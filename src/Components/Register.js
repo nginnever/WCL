@@ -85,8 +85,8 @@ class Register extends React.Component {
       // }
 
       console.log(this.state.wclprofileimage)
-      const data = URL.createObjectURL(this.state.wclprofileimage)
-      console.log(data)
+      //const data = URL.createObjectURL(this.state.wclprofileimage)
+      //console.log(data)
 
       axios.post('http://localhost:3001/api/putData', {
         id: idToBeAdded,
@@ -109,7 +109,7 @@ class Register extends React.Component {
     if (location.pathname.match('/Register/Confirmation')){
       return null;
     } else {
-    return <div style={{marginTop:'50px'}}>
+    return <div style={{marginTop:'50px', backgroundColor:'white'}}>
       <br/>
     	<h1>Season 0 Registration: Open</h1>
     	<br/>

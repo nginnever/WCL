@@ -1,7 +1,7 @@
 import React from 'react'
 class MainL extends React.Component {
   render() {
-    return <div className="Reg">
+    return <div className="Reg" style={{backgroundColor: 'white'}}>
         <br/>
         <br/>
     	<h1>WCL Main</h1>

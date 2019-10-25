@@ -32,7 +32,7 @@ class OpenL extends React.Component {
   }
 
   render() {
-    return <div>
+    return <div style={{backgroundColor: 'white'}}>
     <BrowserRouter>
 		<div className="Nested-header">
 		<Navbar style={{backgroundColor: 'white', borderRadius: '10px', position:'absolute', marginTop:'-27px'}} light expand="md">

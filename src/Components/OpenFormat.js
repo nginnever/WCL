@@ -3,8 +3,6 @@ import React, { useState } from 'react'
 class OpenFormat extends React.Component {
   render() {
     return <div>
-      <br/>
-      <br/>
       <h4>WCL-Open League Format</h4>
       <div style={{display: 'flex', justifyContent: 'center', textAlign:'left'}}>
       <p style={{width:'800px'}}>

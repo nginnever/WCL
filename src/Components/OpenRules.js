@@ -3,8 +3,6 @@ import React, { useState } from 'react'
 class OpenRules extends React.Component {
   render() {
     return <div>
-      <br/>
-      <br/>
       <h4> WCL-Open Rules </h4>
       <br/>
       <br/>
