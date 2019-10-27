@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const logger = require('morgan');
 const Data = require('./data');
 
-const API_PORT = 3001;
+const API_PORT = 3000;
 const app = express();
 app.use(cors());
 const router = express.Router();
@@ -113,6 +113,11 @@ router.post('/putData', (req, res) => {
 app.use('/api', router);
 
 app.use("/", express.static(__dirname + "/../build"))
+
+// app.use(express.static(path.join(__dirname, '/../build')));
+// app.get('*', function (req, res) {
+//   res.sendFile(path.join(__dirname, 'build', 'index.html'));
+// });
 
 // launch our backend into a port
 app.listen(API_PORT, () => console.log(`LISTENING ON PORT ${API_PORT}`));

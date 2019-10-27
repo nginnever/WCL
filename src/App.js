@@ -30,6 +30,7 @@ import Confirmation from './Components/Confirmation';
 
 function App() {
   // initialize our state
+  
   var state = {
     isLoggedIn: false
   }
