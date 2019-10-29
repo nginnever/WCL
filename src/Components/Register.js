@@ -66,7 +66,7 @@ class Register extends React.Component {
 
   getLatestID = () => {
     return new Promise((resolve, reject) => {
-      fetch('https://wowclassicleague.com/api/getLatestID')
+      fetch('https://www.wowclassicleague.com/api/getLatestID')
         .then((data) => data.json())
         .then((res) => this.setState({ data: res.data }))
         //.then(() => console.log(this.state.data))
@@ -88,7 +88,7 @@ class Register extends React.Component {
       //const data = URL.createObjectURL(this.state.wclprofileimage)
       //console.log(data)
 
-      axios.post('https://wowclassicleague.com/api/putData', {
+      axios.post('https://www.wowclassicleague.com/api/putData', {
         id: idToBeAdded,
         password: this.state.password,
         serverSelect: this.state.serverSelect,
