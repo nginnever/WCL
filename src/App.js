@@ -30,7 +30,7 @@ import Confirmation from './Components/Confirmation';
 
 function App() {
   // initialize our state
-  
+
   var state = {
     isLoggedIn: false
   }
@@ -52,7 +52,7 @@ function App() {
               <Collapse isOpen={isOpen} navbar>
                 <Nav className="ml-auto" navbar>
                   <NavItem style={{marginRight: '10px'}} >
-                    <NavLink style={{color: '#f1f1f1'}} href="/">WoW Classic League</NavLink>
+                    <NavLink style={{color: '#f1f1f1'}} href="/">Home</NavLink>
                   </NavItem>
                   <NavItem style={{marginRight: '10px'}}>
                     <NavLink style={{color: '#f1f1f1'}} href="https://github.com/reactstrap/reactstrap">Discord</NavLink>
@@ -127,13 +127,11 @@ function App() {
           <img src={logo} className="App-logo" alt="logo" />
           <br/>
           <p>
-            World of Warcraft Classic Dueling League Season ZERO Coming Soon.
+            World of Warcraft Classic Dueling League <br/> 
+            Season 0 Coming Soon
           </p>
-          <p>
-            FREE HONG KONG
-          </p>
-          <p style={{fontSize:'14px'}}>
-            Site still under construction, please provide feedback in Discord as we prepare for Season 0.
+          <p style={{fontSize:'15px'}}>
+            Site still under construction, Please provide feedback in Discord as we prepare for Season 0
           </p>
 
         </header>
@@ -144,7 +142,7 @@ function App() {
         <Route path="/Register/Confirmation" component={Confirmation} />
 
         <footer className="App-footer">
-          <p style={{marginBottom:'0px'}}>Some: Footer text <br/>
+          <p style={{marginBottom:'0px', color:'white'}}>FREE HONK KONG <br/>
           Contact information: <a href="mailto:someone@example.com">
           someone@example.com</a>.</p>
         </footer>
