@@ -32,10 +32,10 @@ class OpenL extends React.Component {
   }
 
   render() {
-    return <div style={{backgroundColor: 'white'}}>
+    return <div style={{backgroundColor: 'white', paddingTop:'-27px'}}>
     <BrowserRouter>
 		<div className="Nested-header">
-		<Navbar style={{backgroundColor: 'white', borderRadius: '10px', position:'absolute', marginTop:'-27px'}} light expand="md">
+		<Navbar style={{backgroundColor: 'white', borderRadius: '10px', position:'absolute', marginTop:'-20px'}} light expand="md">
 		  <NavbarToggler onClick={this.toggle} />
 		  <Collapse isOpen={this.isOpen} navbar>
 		    <Nav className="ml-auto" navbar>

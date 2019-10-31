@@ -133,7 +133,9 @@ function App() {
           <p style={{fontSize:'15px'}}>
             Site still under construction, Please provide feedback in Discord as we prepare for Season 0
           </p>
-
+          <br/>
+          <br/>
+          <br/>
         </header>
         <Route path="/Register" component={Register} />
         <Route path="/Open" component={OpenL} />
