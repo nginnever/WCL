@@ -24,6 +24,7 @@ class Register extends React.Component {
   	this.handleInputChange = this.handleInputChange.bind(this)
     this.handleInputImage = this.handleInputImage.bind(this)
   	this.handleSubmit = this.handleSubmit.bind(this)
+    this.checkForAccountName = this.checkForAccountName.bind(this)
   }
 
   handleInputChange(event) {
@@ -53,15 +54,23 @@ class Register extends React.Component {
       wclprofile,
       wclprofileimage
     } = this.state;
-    // perform all neccassary validations
 
+    // perform all neccassary validations
+    if (wclname == '') {
+      alert("Must provide username");
+      return
+    }
     if (password !== confirmPassword) {
       alert("Passwords don't match");
-    } else if (wclname == '') {
-      alert("Must provide username");
-    } else {
-      this.putDataToDB(this.state)
+      return
     }
+    this.checkForAccountName(wclname).then(res => {
+      if(res === false) {
+        alert("Account name taken, please try another")
+        return
+      }
+      this.putDataToDB(this.state)
+    })
   }
 
   getLatestID = () => {
@@ -72,7 +81,25 @@ class Register extends React.Component {
         //.then(() => console.log(this.state.data))
         .then(() => resolve())
     })
-  };
+  }
+
+  checkForAccountName = (name) => {
+    return new Promise((resolve, reject) => {
+      fetch('https://www.wowclassicleague.com/api/getAccount/', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: name
+        })
+      })
+        .then((data) => data.json())
+        //.then((res) => this.setState({ data: res.data }))
+        .then((res) => resolve(res.unique))
+    })
+  }
 
   putDataToDB = (message) => {
     // get latest id from DB

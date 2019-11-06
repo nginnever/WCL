@@ -41,6 +41,15 @@ router.get('/getLatestID', (req, res) => {
   });
 });
 
+router.post('/getAccount', (req, res) => {
+  //Data.findOne({id: { $gte: 0 }},(err, data) => {
+  Data.find({ wclname : req.body.name },(err, data) => {
+    if (err) return res.json({ success: false, error: err });
+    if (data.length === 0) { return res.json({ success: true, unique: true })}
+    else { return res.json({ success: true, unique: false }) };
+  });
+});
+
 router.get('/getAllIDs', (req, res) => {
   Data.findOne({id: { $gte: 0 }},(err, data) => {
     if (err) return res.json({ success: false, error: err });
