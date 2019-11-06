@@ -64,6 +64,10 @@ class Register extends React.Component {
       alert("Must provide email");
       return
     }
+    if (password == '') {
+      alert("Must provide a password");
+      return
+    }
     if (password !== confirmPassword) {
       alert("Passwords don't match");
       return

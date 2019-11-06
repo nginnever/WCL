@@ -6,7 +6,7 @@ class MainL extends React.Component {
         <br/>
     	<h1>WCL Main</h1>
     	<br/>
-    	<p>Main league to be determined after Season ZERO Open completion</p>
+    	<p>Main League to be determined after Season 0 Open completion</p>
     	<br/>
     	<br/>
     </div>

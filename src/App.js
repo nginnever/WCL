@@ -126,12 +126,12 @@ function App() {
           <br/>
           <img src={logo} className="App-logo" alt="logo" />
           <br/>
-          <p>
+          <p style={{fontSize:'19px'}}>
             World of Warcraft Classic Dueling League <br/> 
             Season 0 Coming Soon
           </p>
           <p style={{fontSize:'15px'}}>
-            Site still under construction, Please provide feedback in Discord as we prepare for Season 0
+            Site still under construction. Please provide feedback in Discord as we prepare for Season 0
           </p>
           <br/>
           <br/>
@@ -144,9 +144,11 @@ function App() {
         <Route path="/Register/Confirmation" component={Confirmation} />
 
         <footer className="App-footer">
+          <br/>
           <p style={{marginBottom:'0px', color:'white'}}>FREE HONK KONG <br/>
           Contact information: <a href="mailto:someone@example.com">
           someone@example.com</a>.</p>
+          <br/>
         </footer>
       </BrowserRouter>
     </div>

@@ -80,7 +80,7 @@ class OpenL extends React.Component {
     </div>
       <div style={{marginTop:'50px'}}>
         <h1>WCL Open</h1>
-        <p>Open League Begins November 20th</p>
+        <p>Open League begins November 20th</p>
         <br/>
         <br/>
       </div>

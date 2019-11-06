@@ -6,7 +6,7 @@ class InviteL extends React.Component {
         <br/>
     	<h1>WCL Invite</h1>
     	<br/>
-    	<p>Invite league to be determined after Season ZERO Open completion</p>
+    	<p>Invite League to be determined after Season 0 Open completion</p>
     	<br/>
     	<br/>
     </div>
