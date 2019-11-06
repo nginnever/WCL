@@ -111,6 +111,7 @@ class Register extends React.Component {
     } else {
     return <div style={{marginTop:'50px', backgroundColor:'white'}}>
       <br/>
+      <br/>
     	<h1>Season 0 Registration: Open</h1>
     	<br/>
     	<p>Season 0 registration open until November 15th</p>
@@ -129,7 +130,7 @@ class Register extends React.Component {
       <FormGroup>
         <Label for="examplePassword">Password</Label>
     		<div id="message">
-    		  <p>Password must contain the following:
+    		  <p style={{fontSize: "11px"}}>Password must contain the following:
     		  A <b>lowercase</b> letter;
     		  A <b>capital (uppercase)</b> letter;
     		  A <b>number</b>;
@@ -242,7 +243,7 @@ class Register extends React.Component {
         <Label for="exampleText">Player Profile Information</Label>
         <Input type="textarea" name="wclprofile" id="exampleText" onChange={this.handleInputChange} />
       </FormGroup>
-      <FormGroup>
+      {/* <FormGroup>
         <Label for="exampleFile">Upload Champion Gear Screen Shot</Label>
         <Input type="file" name="wclprofileimage" id="wclprofileimage" onChange={this.handleInputImage} />
         <FormText color="muted">
@@ -255,7 +256,7 @@ class Register extends React.Component {
           <Input type="checkbox" />{' '}
           Rules Agreement
         </Label>
-      </FormGroup>
+      </FormGroup> */}
       <Button onClick={this.handleSubmit}>Submit</Button>
     </Form>
     </div>
