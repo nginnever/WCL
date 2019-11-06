@@ -60,8 +60,24 @@ class Register extends React.Component {
       alert("Must provide username");
       return
     }
+    if (wclemail == '') {
+      alert("Must provide email");
+      return
+    }
     if (password !== confirmPassword) {
       alert("Passwords don't match");
+      return
+    }
+    if (Hfaction == '' && Afaction == '') {
+      alert("Must select faction")
+      return
+    }
+    if(serverSelect == '') {
+      alert("Must select server")
+      return
+    }
+    if(wclclass == '') {
+      alert("Must select class")
       return
     }
     this.checkForAccountName(wclname).then(res => {
