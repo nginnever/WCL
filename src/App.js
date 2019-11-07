@@ -55,7 +55,7 @@ function App() {
                     <NavLink style={{color: '#f1f1f1'}} href="/">Home</NavLink>
                   </NavItem>
                   <NavItem style={{marginRight: '10px'}}>
-                    <NavLink style={{color: '#f1f1f1'}} href="https://discord.gg/kJZZmR">Discord</NavLink>
+                    <NavLink style={{color: '#f1f1f1'}} href="https://discord.gg/tNxtvQe">Discord</NavLink>
                   </NavItem>
                   <UncontrolledDropdown style={{marginRight: '10px'}} nav inNavbar>
                     <DropdownToggle style={{color: '#f1f1f1'}} nav caret>
