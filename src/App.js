@@ -146,8 +146,8 @@ function App() {
         <footer className="App-footer">
           <br/>
           <p style={{marginBottom:'0px', color:'white'}}>FREE HONK KONG <br/>
-          Contact information: <a href="mailto:someone@example.com">
-          someone@example.com</a>.</p>
+          Contact information: <a href="mailto:coming@soon.com">
+          coming@soon.com</a>.</p>
           <br/>
         </footer>
       </BrowserRouter>
