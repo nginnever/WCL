@@ -122,13 +122,13 @@ router.post('/putData', (req, res) => {
 // append /api for our http requests
 app.use('/api', router);
 
-app.use(function(req, res, next) {
-    if((!req.secure) && (req.get('X-Forwarded-Proto') !== 'https')) {
-        res.redirect('https://' + req.get('Host') + req.url);
-    }
-    else
-        next();
-});
+// app.use(function(req, res, next) {
+//     if((!req.secure) && (req.get('X-Forwarded-Proto') !== 'https')) {
+//         res.redirect('https://' + req.get('Host') + req.url);
+//     }
+//     else
+//         next();
+// });
 
 app.use("/", express.static(__dirname + "/../build"))
 
