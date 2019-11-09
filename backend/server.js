@@ -11,6 +11,7 @@ app.use(cors());
 const router = express.Router();
 const path = require('path');
 
+
 // this is our MongoDB database
 const dbRoute =
   'mongodb+srv://nathan:bushido420@cluster0-x3jok.mongodb.net/test?retryWrites=true&w=majority';
@@ -120,6 +121,14 @@ router.post('/putData', (req, res) => {
 
 // append /api for our http requests
 app.use('/api', router);
+
+app.use(function(req, res, next) {
+    if((!req.secure) && (req.get('X-Forwarded-Proto') !== 'https')) {
+        res.redirect('https://' + req.get('Host') + req.url);
+    }
+    else
+        next();
+});
 
 app.use("/", express.static(__dirname + "/../build"))
 
