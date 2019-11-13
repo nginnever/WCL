@@ -161,7 +161,7 @@ class Register extends React.Component {
       <br/>
     	<h1>Season 0 Registration: Open</h1>
     	<br/>
-    	<p>Season 0 registration open until November 15th</p>
+    	<p>Season 0 registration open until November 25th</p>
     	<br/>
     	<br/>
     <div style={{display: 'flex', justifyContent: 'center'}}>
