@@ -10,6 +10,8 @@ const app = express();
 app.use(cors());
 const router = express.Router();
 const path = require('path');
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
 
 
 // this is our MongoDB database
@@ -105,17 +107,20 @@ router.post('/putData', (req, res) => {
 
   data.wclname = wclname
   data.wclemail = wclemail
-  data.password = password
-  data.Hfaction = Hfaction
-  data.Afaction = Afaction
-  data.serverSelect =serverSelect
-  data.wclclass = wclclass
-  data.wclprofile = wclprofile
-  data.wclprofileimage = wclprofileimage
-  data.id = id
-  data.save((err) => {
-    if (err) return res.json({ success: false, error: err });
-    return res.json({ success: true });
+
+  bcrypt.hash(password, saltRounds, function(err, hash) {
+    data.password = hash
+    data.Hfaction = Hfaction
+    data.Afaction = Afaction
+    data.serverSelect =serverSelect
+    data.wclclass = wclclass
+    data.wclprofile = wclprofile
+    data.wclprofileimage = wclprofileimage
+    data.id = id
+    data.save((err) => {
+      if (err) return res.json({ success: false, error: err });
+      return res.json({ success: true });
+    });
   });
 });
 
