@@ -124,21 +124,21 @@ router.post('/putData', (req, res) => {
   });
 });
 
-// app.use(function(req, res, next) {
-//     if((!req.secure) && (req.get('X-Forwarded-Proto') !== 'https')) {
-//         res.redirect('https://' + req.get('Host') + req.url);
-//     }
-//     else
-//         next();
-// });
+app.use(function(req, res, next) {
+    if((!req.secure) && (req.get('X-Forwarded-Proto') !== 'https') && req.url !== ('/api/health')) {
+        res.redirect('https://' + req.get('Host') + req.url);
+    }
+    else
+        next();
+});
 
-app.use(function (req, res, next) {
-  if (!/https/.test(req.protocol)) {
-    return res.redirect("https://" + req.headers.host + req.url)
-  } else {
-    return next()
-  }
-})
+// app.use(function (req, res, next) {
+//   if (!/https/.test(req.protocol)) {
+//     return res.redirect("https://" + req.headers.host + req.url)
+//   } else {
+//     return next()
+//   }
+// })
 
 // append /api for our http requests
 app.use('/api', router);
