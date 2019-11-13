@@ -125,7 +125,7 @@ router.post('/putData', (req, res) => {
 });
 
 app.use(function(req, res, next) {
-    if((!req.secure) && req.get('x-forwarded-proto') && (req.get('X-Forwarded-Proto')) !== 'https' && req.url !== '/api/health') {
+    if(!req.secure && req.get('x-forwarded-proto') && (req.get('X-Forwarded-Proto')) !== 'https' && req.url !== '/api/health') {
         res.redirect('https://' + req.get('Host') + req.url);
     }
     else
