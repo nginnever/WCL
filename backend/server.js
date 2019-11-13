@@ -16,7 +16,7 @@ const saltRounds = 10;
 
 // this is our MongoDB database
 const dbRoute =
-  'mongodb+srv://nathan:bushido420@cluster0-x3jok.mongodb.net/test?retryWrites=true&w=majority';
+  'mongodb+srv://nathan:pass@cluster0-x3jok.mongodb.net/test?retryWrites=true&w=majority';
 
 // connects our back end code with the database
 mongoose.connect(dbRoute, { useNewUrlParser: true });
@@ -124,16 +124,16 @@ router.post('/putData', (req, res) => {
   });
 });
 
+app.use(function(req, res, next) {
+    if((!req.secure) && (req.get('X-Forwarded-Proto') !== 'https')) {
+        res.redirect('https://' + req.get('Host') + req.url);
+    }
+    else
+        next();
+});
+
 // append /api for our http requests
 app.use('/api', router);
-
-// app.use(function(req, res, next) {
-//     if((!req.secure) && (req.get('X-Forwarded-Proto') !== 'https')) {
-//         res.redirect('https://' + req.get('Host') + req.url);
-//     }
-//     else
-//         next();
-// });
 
 app.use("/", express.static(__dirname + "/../build"))
 
